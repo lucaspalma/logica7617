@@ -1,8 +1,13 @@
 <meta charset="UTF-8">
+<script  src="numero.js"  > 
+</script>
+
 <script>
-    
-    var peso = prompt("Qual o seu peso?")
-    var altura = prompt("Qual a sua altura?")
+    frase = "Qual o seu peso?"
+    var peso = pegaNumero()
+
+    frase = "Qual a sua altura?"
+    var altura = pegaNumero()
  
     var imc = peso / Math.pow(altura, 2)
 
