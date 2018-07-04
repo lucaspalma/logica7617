@@ -11,6 +11,9 @@ Altura
 Data de nascimento
 <input type="text" id="campoDataNascimento" >
 <br>
+Pessoa tem problema cardíaco?
+<input type="checkbox" id="campoCardiaco"  >
+<br>
 <button onclick="cadastrar()"  >
     Cadastrar
 </button>
@@ -18,24 +21,41 @@ Data de nascimento
 <script src="numero.js" ></script>
 <script src="http://c71bcd0a.ngrok.io/libIdade.js" ></script>
 <script src="http://c71bcd0a.ngrok.io/libBrasil.js" ></script>
+<script src="http://c71bcd0a.ngrok.io/mostra.js" ></script>
 <script>
+var numeroFicha = 0 //contador
 function cadastrar() {
+    numeroFicha = numeroFicha + 1
     var nomeAluno = campoNome.value
     var pesoAluno = parseFloatBrasil( campoPeso.value )
     var alturaAluno = parseFloatBrasil( campoAltura.value )
     var dataDeNascimento = campoDataNascimento.value
-
     var dataNascimentoLista = dataDeNascimento.split("/")
     var diaNasci = dataNascimentoLista[0]
     var mesNasci = dataNascimentoLista[1]
     var anoNasci = dataNascimentoLista[2]
-
-    document.write(`
+    var idade = calculaIdade(diaNasci, mesNasci, anoNasci)
+    var observacao
+    var ehCardiaco = campoCardiaco.checked
+    //se a pessoa tem problema cardiaco OU idade menor 16
+    if( ehCardiaco || idade < 16) {
+        observacao = "Precisa de acompanhamento médico"
+    }
+    //se a pessoa NÃO é cardiaco E idade maior ou igual a 16
+    if( !ehCardiaco && idade >= 16) {
+        observacao = "NÃO precisa de acompanhamento médico"
+    }
+    mostra(`
+        <hr>
+        <h2>Ficha ${numeroFicha}</h2>
+        <hr>
         Nome: ${nomeAluno} <br>
         Peso: ${pesoAluno.toFixed(2).replace(".", ",")} kg <br>
         Altura: ${alturaAluno.toFixed(2).replace(".", ",")} m <br>
         Data de nascimento: ${dataDeNascimento} <br>
-        Idade: ${ calculaIdade(diaNasci, mesNasci, anoNasci) }
+        Idade: ${ idade }
+        <br>
+        ${observacao}   
     `)
 }
 
