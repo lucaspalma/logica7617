@@ -1,14 +1,43 @@
-<script src="numero.js" ></script>
+<meta charset="UTF-8">
+Nome
+<input type="text" id="campoNome" >
+<br>
+Peso
+<input type="text" id="campoPeso" >
+<br>
+Altura
+<input type="text" id="campoAltura" >
+<br>
+Data de nascimento
+<input type="text" id="campoDataNascimento" >
+<br>
+<button onclick="cadastrar()"  >
+    Cadastrar
+</button>
 
+<script src="numero.js" ></script>
+<script src="http://c71bcd0a.ngrok.io/libIdade.js" ></script>
+<script src="http://c71bcd0a.ngrok.io/libBrasil.js" ></script>
 <script>
-var nomeAluno = prompt("Qual o seu nome?")
-var pesoAluno = pegaNumero("Qual o seu peso?")
-var alturaAluno = pegaNumero("Qual a sua altura")
-var dataDeNascimento = prompt("Qual a sua data de nascimento?")
-document.write(`
-    Nome: ${nomeAluno} <br>
-    Peso: ${pesoAluno.toFixed(2).replace(".", ",")} kg <br>
-    Altura: ${alturaAluno.toFixed(2).replace(".", ",")} m <br>
-    Data de nascimento: ${dataDeNascimento}
-`)
+function cadastrar() {
+    var nomeAluno = campoNome.value
+    var pesoAluno = parseFloatBrasil( campoPeso.value )
+    var alturaAluno = parseFloatBrasil( campoAltura.value )
+    var dataDeNascimento = campoDataNascimento.value
+
+    var dataNascimentoLista = dataDeNascimento.split("/")
+    var diaNasci = dataNascimentoLista[0]
+    var mesNasci = dataNascimentoLista[1]
+    var anoNasci = dataNascimentoLista[2]
+
+    document.write(`
+        Nome: ${nomeAluno} <br>
+        Peso: ${pesoAluno.toFixed(2).replace(".", ",")} kg <br>
+        Altura: ${alturaAluno.toFixed(2).replace(".", ",")} m <br>
+        Data de nascimento: ${dataDeNascimento} <br>
+        Idade: ${ calculaIdade(diaNasci, mesNasci, anoNasci) }
+    `)
+}
+
+
 </script>
