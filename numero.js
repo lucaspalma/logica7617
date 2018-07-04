@@ -1,6 +1,6 @@
 //Programa feito por Lucas Takeshi
 //Email lucas.takeshi@caelum.com.br
-var frase
-function pegaNumero() {
+
+function pegaNumero(frase) {
     return parseFloat( prompt(frase).replace(",", ".") )
 }

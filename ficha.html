@@ -1,0 +1,14 @@
+<script src="numero.js" ></script>
+
+<script>
+var nomeAluno = prompt("Qual o seu nome?")
+var pesoAluno = pegaNumero("Qual o seu peso?")
+var alturaAluno = pegaNumero("Qual a sua altura")
+var dataDeNascimento = prompt("Qual a sua data de nascimento?")
+document.write(`
+    Nome: ${nomeAluno} <br>
+    Peso: ${pesoAluno.toFixed(2).replace(".", ",")} kg <br>
+    Altura: ${alturaAluno.toFixed(2).replace(".", ",")} m <br>
+    Data de nascimento: ${dataDeNascimento}
+`)
+</script>

@@ -1,23 +1,23 @@
 <meta charset="UTF-8">
 <script src="numero.js" >
 </script>
+<script src="http://c71bcd0a.ngrok.io/libRelogio.js" >
+</script>
+
 <h2>Uber</h2>
 <script>
-frase = "Qual a distancia em km?"
-var distancia = pegaNumero()
+var distancia = pegaNumero("Qual a distancia em km?")
 var tempoEmHoras = distancia / 25
 var tempo = tempoEmHoras * 60
 var totalUber = 2 + (distancia * 1.4) + (tempo * 0.26)
+document.write("Tempo estimado " + formataRelogio(tempo) + "<br>")
 document.write("Total: R$ " + totalUber.toFixed(2).replace("." , ",") )
 </script>
 <h2>Carro</h2>
 <script>
-frase = "Qual o preço da gasolina em litros?"
-var custoGasolina = pegaNumero()
-frase = "Qual o consumo do carro?"
-var consumo = pegaNumero()
-frase = "Qual o valor do estacionamento?"
-var estacionamento = pegaNumero()
+var custoGasolina = pegaNumero("Qual o preço da gasolina em litros?")
+var consumo = pegaNumero("Qual o consumo do carro?")
+var estacionamento = pegaNumero("Qual o valor do estacionamento?")
 
 var gasolina = distancia * custoGasolina / consumo
 
