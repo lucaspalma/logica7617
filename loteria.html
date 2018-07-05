@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<h1>Jogo do adivinha</h1>
+<br> <br>
+<button onclick="jogar()">
+    Jogar
+</button>
+<script src="numero.js"></script>
+<script src="http://60a405fc.ngrok.io/mostra.js" ></script>
+<script>
+var jogador = 0 //contador
+function jogar() {
+    jogador = jogador + 1
+    var pergunta = pegaNumero("Pensa em um numero ai?")
+    var resposta = pegaNumero("De um chute")
+    var observacao
+    if(pergunta == resposta) {
+        mostra(`<h3>Jogador ${jogador} : Acertou. O numero era ${pergunta}</h3><hr>`)
+    }
+    else { //se não
+        mostra(`<h3>Jogador ${jogador} : Errou. O numero era ${pergunta}</h3><hr>`)
+    }
+}
+</script>
+
+
+

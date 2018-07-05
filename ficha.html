@@ -1,4 +1,5 @@
 <meta charset="UTF-8">
+
 Nome
 <input type="text" id="campoNome" >
 <br>
@@ -19,9 +20,9 @@ Pessoa tem problema cardíaco?
 </button>
 
 <script src="numero.js" ></script>
-<script src="http://c71bcd0a.ngrok.io/libIdade.js" ></script>
-<script src="http://c71bcd0a.ngrok.io/libBrasil.js" ></script>
-<script src="http://c71bcd0a.ngrok.io/mostra.js" ></script>
+<script src="http://60a405fc.ngrok.io/libIdade.js" ></script>
+<script src="http://60a405fc.ngrok.io/libBrasil.js" ></script>
+<script src="http://60a405fc.ngrok.io/mostra.js" ></script>
 <script>
 var numeroFicha = 0 //contador
 function cadastrar() {
@@ -45,6 +46,11 @@ function cadastrar() {
     if( !ehCardiaco && idade >= 16) {
         observacao = "NÃO precisa de acompanhamento médico"
     }
+    //se numeroFicha for IGUAL a 1
+    if(numeroFicha == 1) {
+        mostra("<h1>Fichas</h1>")
+    }
+
     mostra(`
         <hr>
         <h2>Ficha ${numeroFicha}</h2>
