@@ -10,9 +10,22 @@
 var jogador = 0 //contador
 function jogar() {
     jogador = jogador + 1
-    var pergunta = pegaNumero("Pensa em um numero ai?")
-    var resposta = pegaNumero("De um chute")
-    var observacao
+    var pergunta = parseInt( Math.random() * 100 )
+    console.log(pergunta)
+    var resposta = pegaNumero("De um chute de 0 a 100")
+
+
+    var chances = 0
+    while(resposta > 100 || resposta < 0) {
+        chances = chances + 1
+        if(chances == 5) {
+            alert("GAME OVER")
+            break
+        }
+        resposta = pegaNumero("Apenas entre 0 e 100! Tenta dnv!")
+    }
+
+
     if(pergunta == resposta) {
         mostra(`<h3>Jogador ${jogador} : Acertou. O numero era ${pergunta}</h3><hr>`)
     }
