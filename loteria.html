@@ -6,15 +6,25 @@
 </button>
 <script src="numero.js"></script>
 <script src="http://60a405fc.ngrok.io/mostra.js" ></script>
+<script src="http://60a405fc.ngrok.io/pegaPaisCopa.js" ></script>
 <script>
 var jogador = 0 //contador
 function jogar() {
     jogador = jogador + 1
-    var pergunta = parseInt( Math.random() * 100 )
-    console.log(pergunta)
+    
+    var listaDeNumeros = []
+    //var contaLista = 0
+    //while(contaLista < 6) {
+        //listaDeNumeros.push( parseInt( Math.random() * 100 ) )    
+        //contaLista = contaLista + 1
+    //}
+    for(var contaLista = 0; contaLista < 6 ;contaLista=contaLista+1) {
+        listaDeNumeros.push( parseInt( Math.random() * 100 ) ) 
+    }
+
+    console.log(listaDeNumeros)
+    
     var resposta = pegaNumero("De um chute de 0 a 100")
-
-
     var chances = 0
     while(resposta > 100 || resposta < 0) {
         chances = chances + 1
@@ -26,11 +36,11 @@ function jogar() {
     }
 
 
-    if(pergunta == resposta) {
-        mostra(`<h3>Jogador ${jogador} : Acertou. O numero era ${pergunta}</h3><hr>`)
+    if(listaDeNumeros.includes(resposta)) {
+      mostra(`<h3>Jogo${jogador}:Acertou.${listaDeNumeros}</h3><hr>`)
     }
     else { //se não
-        mostra(`<h3>Jogador ${jogador} : Errou. O numero era ${pergunta}</h3><hr>`)
+      mostra(`<h3>Jogo${jogador}:Errou.${listaDeNumeros}</h3><hr>`)
     }
 }
 </script>

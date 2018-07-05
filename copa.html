@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+<script src="http://60a405fc.ngrok.io/pegaPaisCopa.js" ></script>
+<script>
+var anoCopa = 1930
+while( anoCopa < 2019 ) {
+    if(anoCopa == 1942 || anoCopa == 1946) {
+      document.write("")
+    }
+    else {
+      document.write("Copa"+anoCopa+":"+pegaPaisCopa(anoCopa)+"<br>")
+    }   
+    anoCopa = anoCopa + 4    
+}
+document.write("-------------------")
+var anoCopa = 1930
+while( anoCopa < 2019 ) {
+    if(anoCopa == 1942) {
+        anoCopa = anoCopa + 8
+    }
+    document.write("Copa "+anoCopa+":"+pegaPaisCopa(anoCopa)+"<br>")   
+    anoCopa = anoCopa + 4    
+}
+document.write("-------------------")
+var anoCopa = 1930
+while( anoCopa < 2019 ) {
+    if(anoCopa != 1942 && anoCopa != 1946) {
+        document.write("Copa "+anoCopa+":"+pegaPaisCopa(anoCopa)+"<br>")        
+    }       
+    anoCopa = anoCopa + 4    
+}
+
+
+</script>
